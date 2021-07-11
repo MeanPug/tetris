@@ -20,11 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aerolab/blockrain.js"
+    "url": "https://github.com/MeanPug/tetris"
   },
-  "author": "Aerolab",
+  "author": "MeanPug",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Aerolab/blockrain.js/issues"
+    "url": "https://github.com/MeanPug/tetris/issues"
   }
 }
