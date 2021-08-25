@@ -7,25 +7,11 @@
 
   <meta name="description" content="Blockrain.js lets you embed the classic Tetris game on your website" />
   <meta name="keywords" content="js, jquery, game, plugin, html5, tetris" />
-  <meta name="robots" content="INDEX, FOLLOW" />
-  <meta name="author" content="Aerolab" />
 
-  <!-- Facebook Stuff -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Blockrain.js" />
-  <meta property="og:title" content="Blockrain.js - a Tetris game in HTML5 + Javascript" />
-  <meta property="og:description" content="Blockrain.js lets you embed the classic Tetris game on your website" />
-  <meta property="og:image" content="http://aerolab.github.io/blockrain.js/assets/images/social-card.png" />
-  <meta property="og:url" content="http://aerolab.github.io/blockrain.js" />
-  <meta property="fb:app_id" content="344819049029949" />
-  
   <!-- Twitter Stuff -->
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:site" content="@aerolab" />
   <meta property="twitter:title" content="Blockrain.js - a Tetris game in HTML5 + Javascript" />
   <meta property="twitter:description" content="Blockrain.js lets you embed the classic Tetris game on your website" />
-  <meta property="twitter:image" content="http://aerolab.github.io/blockrain.js/assets/images/social-card.png" />
-  <meta property="twitter:url" content="http://aerolab.github.io/blockrain.js" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
   <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -33,24 +19,41 @@
   <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="src/blockrain.css">
-
 </head>
 <body>
 
 
-<section id="examples">
+<section>
 
   <header>
     <h1>Check out the demo</h1>
   </header>
 
-  <article id="example-slider">
-    <div class="example">
-      <div class="game" id="tetris-demo"></div>
-      <div class="game" id="tetris-demo-2"></div>
-    </div>
-  </article>
+  <section id="examples">
+    <header>
+      <h1>Try it yourself!</h1>
+    </header>
+    <article id="example-slider">
+      <div class="example">
+        <div class="theme">theme: <strong>"vim"</strong></div>
+        <div class="instructions">
+          Use only arrows
+          <div class="keyboard">
+            <div class="key key-up"></div>
+            <div class="key key-left"></div>
+            <div class="key key-down"></div>
+            <div class="key key-right"></div>
+          </div>
+        </div>
+        <div class="game" id="tetris-demo"></div>
+      </div>
+      <div class="buttons">
+        <a href="" class="btn btn-prev">Previous</a>
+        <a href="" class="btn btn-next">Next</a>
+      </div>
+    </article>
 
+  </section>
 </section>
 
 <script src="assets/js/jquery-1.11.1.min.js"></script>
@@ -61,15 +64,8 @@
 <script>
 
   var $demo = $('#tetris-demo').blockrain({
-    speed: 100,
-    theme: 'individual',
-    autoplay: true
-  });
-
-  var $demo2 = $('#tetris-demo-2').blockrain({
-    speed: 100,
-    theme: 'individual',
-    autoplay: true
+    speed: 20,
+    theme: 'meanpug',
   });
 
 </script>

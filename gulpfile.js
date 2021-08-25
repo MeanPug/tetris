@@ -1,4 +1,4 @@
-let { watch, series, src, dest } = require('gulp');
+let { watch, series, src, dest, task } = require('gulp');
 var uglify = require("gulp-uglify"),
     concat = require("gulp-concat"),
     _clean = require("gulp-clean"),
@@ -33,13 +33,9 @@ function clean() {
        .pipe(_clean());
 }
 
-function build() {
-    return series(clean, js, css, blocks, readme);
-}
-
 function dev() {
     watch(['./src/*.js', './src/*.css'], series(js, css, blocks));
 }
 
-exports.default = build;
+exports.build = task('build', series(clean, js, css, blocks, readme));
 exports.watch = dev;
