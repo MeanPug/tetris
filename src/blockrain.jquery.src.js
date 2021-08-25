@@ -286,8 +286,8 @@
             var cx = x * this._block_size;
             var cy = y * this._block_size;
 
-            this._ctx.drawImage(  this._theme.backgroundGrid, 
-                                  0, 0, this._theme.backgroundGrid.width, this._theme.backgroundGrid.height, 
+            this._ctx.drawImage(  this._theme.backgroundGrid,
+                                  0, 0, this._theme.backgroundGrid.width, this._theme.backgroundGrid.height,
                                   cx, cy, this._block_size, this._block_size);
           }
         }
@@ -328,12 +328,12 @@
        * Keep in mind that the blocks should keep in the same relative position when rotating,
        * to allow for custom per-block themes.
        */
-      /*            
-       *   X      
-       *   O  XOXX
-       *   X      
+      /*
        *   X
-       *   .   .      
+       *   O  XOXX
+       *   X
+       *   X
+       *   .   .
        */
       line: [
           [ 0, -1,   0, -2,   0, -3,   0, -4],
@@ -363,9 +363,9 @@
         [1, -2,   1, -1,   1,  0,   2, -1]
       ],
       /*
-       *    X    X XX 
-       *    O  XOX  O XOX 
-       *   .XX .   .X X   
+       *    X    X XX
+       *    O  XOX  O XOX
+       *   .XX .   .X X
        */
       rightHook: [
         [2,  0,   1,  0,   1, -1,   1, -2],
@@ -374,9 +374,9 @@
         [0,  0,   0, -1,   1, -1,   2, -1]
       ],
       /*
-       *    X      XX X  
+       *    X      XX X
        *    O XOX  O  XOX
-       *   XX . X .X  .  
+       *   XX . X .X  .
        */
       leftHook: [
         [0,  0,   1,  0,   1, -1,   1, -2],
@@ -385,9 +385,9 @@
         [0, -2,   0, -1,   1, -1,   2, -1]
       ],
       /*
-       *    X  XX 
+       *    X  XX
        *   XO   OX
-       *   X   .  
+       *   X   .
        */
       leftZag: [
         [0,  0,   0, -1,   1, -1,   1, -2],
@@ -396,9 +396,9 @@
         [0, -2,   1, -2,   1, -1,   2, -1]
       ],
       /*
-       *   X    
+       *   X
        *   XO   OX
-       *   .X  XX   
+       *   .X  XX
        */
       rightZag: [
         [1,  0,   1, -1,   0, -1,   0, -2],
@@ -584,9 +584,9 @@
         add: function(x, y, blockType, blockVariation, blockIndex, blockOrientation) {
           if (x >= 0 && x < game._BLOCK_WIDTH && y >= 0 && y < game._BLOCK_HEIGHT) {
             this.data[this.asIndex(x, y)] = {
-              blockType: blockType, 
-              blockVariation: blockVariation, 
-              blockIndex: blockIndex, 
+              blockType: blockType,
+              blockVariation: blockVariation,
+              blockIndex: blockIndex,
               blockOrientation: blockOrientation
             };
           }
@@ -806,10 +806,10 @@
           if( !this.paused && !this.gameover ) {
 
             this.dropCount++;
-            
+
             // Drop by delay or holding
-            if( (this.dropCount >= this.dropDelay) || 
-                (game.options.autoplay) || 
+            if( (this.dropCount >= this.dropDelay) ||
+                (game.options.autoplay) ||
                 (this.holding.drop && (now - this.holding.drop) >= this.holdingThreshold) ) {
               drop = true;
             moved = true;
@@ -940,7 +940,7 @@
 
         /**
          * Draws one block (Each piece is made of 4 blocks)
-         * The blockType is used to draw any block. 
+         * The blockType is used to draw any block.
          * The falling attribute is needed to apply different styles for falling and placed blocks.
          */
         drawBlock: function(x, y, blockType, blockVariation, blockIndex, blockRotation, falling) {
@@ -984,7 +984,7 @@
                 var maxY = Math.max(positions[1], positions[3], positions[5], positions[7]);
                 var rangeX = maxX - minX + 1;
                 var rangeY = maxY - minY + 1;
-                
+
                 // X and Y sizes should match. Should.
                 var tileSizeX = image.width / rangeX;
                 var tileSizeY = image.height / rangeY;
@@ -1004,9 +1004,9 @@
               game._ctx.translate(x, y);
               game._ctx.translate(game._block_size/2, game._block_size/2);
               game._ctx.rotate(-Math.PI/2 * blockRotation);
-              game._ctx.drawImage(color,  coords.x, coords.y, coords.w, coords.h, 
+              game._ctx.drawImage(color,  coords.x, coords.y, coords.w, coords.h,
                                           -game._block_size/2, -game._block_size/2, game._block_size, game._block_size);
-              
+
               game._ctx.restore();
 
             } else {
@@ -1073,7 +1073,7 @@
             if( $.isArray(blockTheme) ) {
               if( blockVariation !== null && typeof blockTheme[blockVariation] !== 'undefined' ) {
                 return blockTheme[blockVariation];
-              } 
+              }
               else if(blockTheme.length > 0) {
                 return blockTheme[0];
               } else {
@@ -1428,31 +1428,31 @@
       var moveLeft = function(start) {
         if( ! start ) { game._board.holding.left = null; return; }
         if( ! game._board.holding.left ) {
-          game._board.cur.moveLeft(); 
+          game._board.cur.moveLeft();
           game._board.holding.left = Date.now();
-          game._board.holding.right = null; 
+          game._board.holding.right = null;
         }
       }
       var moveRight = function(start) {
         if( ! start ) { game._board.holding.right = null; return; }
         if( ! game._board.holding.right ) {
-          game._board.cur.moveRight(); 
-          game._board.holding.right = Date.now(); 
-          game._board.holding.left = null; 
+          game._board.cur.moveRight();
+          game._board.holding.right = Date.now();
+          game._board.holding.left = null;
         }
       }
       var drop = function(start) {
         if( ! start ) { game._board.holding.drop = null; return; }
         if( ! game._board.holding.drop ) {
-          game._board.cur.drop(); 
+          game._board.cur.drop();
           game._board.holding.drop = Date.now();
         }
       }
       var rotateLeft = function() {
-        game._board.cur.rotate('left'); 
+        game._board.cur.rotate('left');
       }
       var rotateRight = function() {
-        game._board.cur.rotate('right'); 
+        game._board.cur.rotate('right');
       }
 
       // Handlers: These are used to be able to bind/unbind controls

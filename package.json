@@ -1,30 +1,31 @@
 {
-  "name": "blockrain",
-  "version": "0.2.1",
+  "name": "@meanpug-llc/tetris",
+  "version": "0.2.2",
   "description": "Add a game of tetris to your site",
   "main": "dist/blockrain.jquery.min.js",
   "dependencies": {
     "jquery": "~1.11.3"
   },
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "dev": "gulp watch",
+    "server": "http-server"
   },
   "devDependencies": {
-    "gulp": "^3.8.8",
+    "gulp": "^4",
+    "gulp-batch": "^1.0.5",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.4.1",
-    "gulp-header": "^1.1.1",
     "gulp-uglify": "^1.0.1",
-    "gulp-zip": "~2.0.2",
-    "run-sequence": "~1.0.2"
+    "http-server": "^0.12.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aerolab/blockrain.js"
+    "url": "https://github.com/MeanPug/tetris"
   },
-  "author": "Aerolab",
+  "author": "MeanPug",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Aerolab/blockrain.js/issues"
+    "url": "https://github.com/MeanPug/tetris/issues"
   }
 }
