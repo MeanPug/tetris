@@ -1,6 +1,6 @@
 {
   "name": "@meanpug-llc/tetris",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Add a game of tetris to your site",
   "main": "dist/blockrain.jquery.min.js",
   "dependencies": {
